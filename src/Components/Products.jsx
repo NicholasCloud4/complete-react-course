@@ -2,7 +2,22 @@ import React from 'react'
 
 function Products() {
     return (
-        <h1>All Products</h1>
+        <>
+            <ul>
+                <li>
+                    <div>
+                        <div>
+                            <h5>Fresh Milk</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>
+                            <div>
+                                <h6>$120.00</h6>
+                            </div>
+                        </div>
+                        <img src="" width="200" alt='' />
+                    </div>
+                </li>
+            </ul>
+        </>
     )
 }
 
