@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button';
 
 let productCount = 0;
 function displayFormattedProductCount() {
@@ -13,10 +14,11 @@ function ProductDetails(props) {
     return (
         <div className="d-flex align-items-center justify-content-start mt-1">
             <h6 className="font-weight-bold my-2" style={{ marginRight: "30px" }}>${props.price}</h6>
-            <button className="btn btn-primary">-</button>
+            <Button>-</Button>
             <span style={{ padding: "0px 20px", fontSize: "12px" }}>{displayFormattedProductCount()}</span>
-            <button className="btn btn-primary ">+</button>
+            <Button>+</Button>
             <span className={badgeClass}>{props.isAvailable ? "Available" : "Unavailable"}</span>
+
         </div>
     )
 }
