@@ -1,14 +1,15 @@
 import "./App.css"
 import Products from "./Components/Products";
+import bootstrap from 'bootstrap'
 
 function App() {
 
-    let msg = "awesome"
-
     return (
-        <>
-            <Products />
-        </>
+        <div className="row">
+            <div className="col-lg-8 mx-auto">
+                <Products />
+            </div>
+        </div>
     )
 }
 
