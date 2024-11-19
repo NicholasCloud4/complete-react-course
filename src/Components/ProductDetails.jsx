@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from './Button';
-
-
 
 
 function ProductDetails(props) {
@@ -9,19 +7,22 @@ function ProductDetails(props) {
     let badgeClass = "badge-margin-left-240 badge ";
     badgeClass += props.isAvailable ? "badge bg-success" : "badge bg-danger"
 
-    let productCount = 0;
+    // let productCount = 0;
+    const [productCount, setProductCount] = useState(0);
     function displayFormattedProductCount() {
-        return productCount > 0 ? productCount : "ZERO";
+        return productCount > 0 ? productCount : 0;
     }
 
     function incrementProductCount() {
-        productCount++;
-        console.log(productCount)
+        // productCount++;
+        // console.log(productCount)
+        setProductCount(productCount + 1);
     }
 
     function decrementProductCount() {
-        productCount--;
-        console.log(productCount)
+        // productCount--;
+        // console.log(productCount)
+        setProductCount(productCount - 1);
     }
 
     return (
