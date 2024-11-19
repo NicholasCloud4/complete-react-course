@@ -2,6 +2,11 @@ import React from "react";
 
 let productCount = 0;
 let imageUrl = require("../images/fresh-milk.jpg")
+let isAvailable = "Available";
+
+let badgeClass = "badge-margin-left-240 badge ";
+badgeClass += isAvailable === "Available" ? "badge bg-success" : "badge bg-danger"
+console.log(badgeClass)
 // let style = {
 //     padding: "0px 20px",
 //     fontSize: "12px"
@@ -25,6 +30,7 @@ function Products() {
                                 <button className="btn btn-primary">-</button>
                                 <span style={{ padding: "0px 20px", fontSize: "12px" }}>{displayFormattedProductCount()}</span>
                                 <button className="btn btn-primary ">+</button>
+                                <span className={badgeClass}>{isAvailable}</span>
 
                             </div>
                         </div>
