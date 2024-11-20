@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 
 function ProductForm() {
 
+    const [pName, setPName] = useState("")
+    const [pPrice, setPPrice] = useState("")
+    const [pDescription, setPDescription] = useState("")
+    const [pAvailable, setPAvailable] = useState("")
+    const [pImageUrl, setPImageUrl] = useState("")
+
     function nameInputHandler(event) {
-        console.log(event.target.value)
+        setPName(event.target.value)
     }
 
     function priceInputHandler(event) {
-        console.log(event.target.value)
+        setPPrice(event.target.value)
     }
 
     function descriptionInputHandler(event) {
-        console.log(event.target.value)
+        setPDescription(event.target.value)
     }
 
     function availabilityInputHandler(event) {
-        console.log(event.target.value)
+        setPAvailable(event.target.value)
     }
 
     function imageInputHandler(event) {
-        console.log(event.target.value)
+        setPImageUrl(event.target.value)
     }
 
     return (
