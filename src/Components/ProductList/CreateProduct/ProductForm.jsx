@@ -3,68 +3,81 @@ import React, { useState } from 'react'
 
 function ProductForm() {
 
-    // const [pName, setPName] = useState("")
-    // const [pPrice, setPPrice] = useState("")
-    // const [pDescription, setPDescription] = useState("")
-    // const [pAvailable, setPAvailable] = useState("")
-    // const [pImageUrl, setPImageUrl] = useState("")
+    const [pName, setPName] = useState("")
+    const [pPrice, setPPrice] = useState("")
+    const [pDescription, setPDescription] = useState("")
+    const [pAvailable, setPAvailable] = useState("")
+    const [pImageUrl, setPImageUrl] = useState("")
 
-    const [userInput, setUserInput] = useState({
-        pName: "",
-        pPrice: "",
-        pDescription: "",
-        pAvailable: "",
-        pImageUrl: "",
-    });
+    // const [userInput, setUserInput] = useState({
+    //     pName: "",
+    //     pPrice: "",
+    //     pDescription: "",
+    //     pAvailable: "",
+    //     pImageUrl: "",
+    // });
 
     function nameInputHandler(event) {
-        //setPName(event.target.value)
+        setPName(event.target.value)
 
         // setUserInput({
         //     ...userInput,
         //     pName: event.target.value
         // })
 
-        setUserInput((prevState) => {
-            return { ...prevState, pName: event.target.value }
-        })
+        // setUserInput((prevState) => {
+        //     return { ...prevState, pName: event.target.value }
+        // })
     }
 
     function priceInputHandler(event) {
-        //setPPrice(event.target.value)
-        setUserInput({
-            ...userInput,
-            pPrice: event.target.value
-        })
+        setPPrice(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     pPrice: event.target.value
+        // })
     }
 
     function descriptionInputHandler(event) {
-        //setPDescription(event.target.value)
-        setUserInput({
-            ...userInput,
-            pDescription: event.target.value
-        })
+        setPDescription(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     pDescription: event.target.value
+        // })
     }
 
     function availabilityInputHandler(event) {
-        //setPAvailable(event.target.value)
-        setUserInput({
-            ...userInput,
-            pAvailable: event.target.value
-        })
+        setPAvailable(event.target.checked)
+        // setUserInput({
+        //     ...userInput,
+        //     pAvailable: event.target.value
+        // })
     }
 
     function imageInputHandler(event) {
-        //setPImageUrl(event.target.value)
-        setUserInput({
-            ...userInput,
-            pImageUrl: event.target.value
-        })
+        setPImageUrl(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     pImageUrl: event.target.value
+        // })
+    }
+
+    function createProductEventHandler(event) {
+        event.preventDefault();
+        let product = {
+            pID: 1,
+            pName: pName,
+            desc: pDescription,
+            isAvailable: Boolean(pAvailable),
+            image: pImageUrl,
+            price: Number(pPrice),
+        }
+        console.log(product)
     }
 
     return (
         <>
-            <form className="row g-3">
+            <form className="row g-3" onSubmit={createProductEventHandler}>
                 <div className="col-md-6">
                     <label for="name">Product Name</label>
                     <input type="text"
