@@ -19,9 +19,14 @@ function ProductForm() {
 
     function nameInputHandler(event) {
         //setPName(event.target.value)
-        setUserInput({
-            ...userInput,
-            pName: event.target.value
+
+        // setUserInput({
+        //     ...userInput,
+        //     pName: event.target.value
+        // })
+
+        setUserInput((prevState) => {
+            return { ...prevState, pName: event.target.value }
         })
     }
 
