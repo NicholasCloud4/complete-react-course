@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ProductForm() {
+function ProductForm(props) {
     const [pName, setPName] = useState("");
     const [pPrice, setPPrice] = useState("");
     const [pDescription, setPDescription] = useState("");
@@ -63,7 +63,6 @@ function ProductForm() {
     function createProductEventHandler(event) {
         event.preventDefault();
         let product = {
-            pID: 1,
             pName: pName,
             desc: pDescription,
             isAvailable: Boolean(pAvailable),
@@ -77,7 +76,8 @@ function ProductForm() {
         setPAvailable(false)
         setPImageUrl("")
 
-        console.log(product);
+        //console.log(product);
+        props.createProduct(product);
     }
 
     return (
