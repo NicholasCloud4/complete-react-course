@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
-
+import React, { useState } from "react";
 
 function ProductForm() {
-
-    const [pName, setPName] = useState("")
-    const [pPrice, setPPrice] = useState("")
-    const [pDescription, setPDescription] = useState("")
-    const [pAvailable, setPAvailable] = useState("")
-    const [pImageUrl, setPImageUrl] = useState("")
+    const [pName, setPName] = useState("");
+    const [pPrice, setPPrice] = useState("");
+    const [pDescription, setPDescription] = useState("");
+    const [pAvailable, setPAvailable] = useState(false);
+    const [pImageUrl, setPImageUrl] = useState("");
 
     // const [userInput, setUserInput] = useState({
     //     pName: "",
@@ -18,7 +16,7 @@ function ProductForm() {
     // });
 
     function nameInputHandler(event) {
-        setPName(event.target.value)
+        setPName(event.target.value);
 
         // setUserInput({
         //     ...userInput,
@@ -31,7 +29,7 @@ function ProductForm() {
     }
 
     function priceInputHandler(event) {
-        setPPrice(event.target.value)
+        setPPrice(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     pPrice: event.target.value
@@ -39,7 +37,7 @@ function ProductForm() {
     }
 
     function descriptionInputHandler(event) {
-        setPDescription(event.target.value)
+        setPDescription(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     pDescription: event.target.value
@@ -47,7 +45,7 @@ function ProductForm() {
     }
 
     function availabilityInputHandler(event) {
-        setPAvailable(event.target.checked)
+        setPAvailable(event.target.checked);
         // setUserInput({
         //     ...userInput,
         //     pAvailable: event.target.value
@@ -55,7 +53,7 @@ function ProductForm() {
     }
 
     function imageInputHandler(event) {
-        setPImageUrl(event.target.value)
+        setPImageUrl(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     pImageUrl: event.target.value
@@ -71,8 +69,15 @@ function ProductForm() {
             isAvailable: Boolean(pAvailable),
             image: pImageUrl,
             price: Number(pPrice),
-        }
-        console.log(product)
+        };
+
+        setPName("")
+        setPPrice("")
+        setPDescription("")
+        setPAvailable(false)
+        setPImageUrl("")
+
+        console.log(product);
     }
 
     return (
@@ -80,46 +85,72 @@ function ProductForm() {
             <form className="row g-3" onSubmit={createProductEventHandler}>
                 <div className="col-md-6">
                     <label for="name">Product Name</label>
-                    <input type="text"
+                    <input
+                        type="text"
                         className="form-control"
                         id="name"
                         placeholder="Product Name"
-                        onChange={nameInputHandler} />
+                        value={pName}
+                        onChange={nameInputHandler}
+                    />
                 </div>
                 <div className="col-md-6">
                     <label for="price">Product Price</label>
-                    <input type="number"
-                        min="0.01" step="0.01"
+                    <input
+                        type="number"
+                        min="0.01"
+                        step="0.01"
                         className="form-control"
                         id="price"
                         placeholder="Product Price"
-                        onChange={priceInputHandler} />
+                        value={pPrice}
+                        onChange={priceInputHandler}
+                    />
                 </div>
 
                 <div className="form-group">
                     <label for="description">Product Description</label>
-                    <input type="text"
+                    <input
+                        type="text"
                         className="form-control"
                         id="description"
                         placeholder="Product Description"
-                        onChange={descriptionInputHandler} />
+                        value={pDescription}
+                        onChange={descriptionInputHandler}
+                    />
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="isAvailable" onChange={availabilityInputHandler} />
-                    <label class="form-check-label" for="isAvailable">Is product available in stock?</label>
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="isAvailable"
+                        value={pAvailable}
+                        onChange={availabilityInputHandler}
+                    />
+                    <label class="form-check-label" for="isAvailable">
+                        Is product available in stock?
+                    </label>
                 </div>
 
                 <div className="form-group">
                     <label for="select-image">Select product image</label>
-                    <input type="file" className="form-control" id="select-image" onChange={imageInputHandler} />
+                    <input
+                        type="file"
+                        className="form-control"
+                        id="select-image"
+                        value={pImageUrl}
+                        onChange={imageInputHandler}
+                    />
                 </div>
 
-
-                <button type="submit" className="btn btn-primary">Add Product</button>
+                <button type="submit" className="btn btn-primary">
+                    Add Product
+                </button>
             </form>
         </>
-    )
+    );
 }
 
-export default ProductForm
+export default ProductForm;
