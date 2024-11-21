@@ -61,10 +61,10 @@ function App() {
     const [newProductList, setNewProductList] = useState(products);
 
     function createProduct(product) {
+        product.pID = newProductList.length + 1
         setNewProductList([product, ...newProductList]);
-
-
     }
+
     return (
         <>
             <CreateProduct createProduct={createProduct} />
